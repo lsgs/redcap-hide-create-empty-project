@@ -1,0 +1,40 @@
+{
+	"name": "Hide Create Empty Project",
+
+	"description": "Hides the \"Empty project\" option when creating/requesting a new project so users must use a template (or ODM XML upload). You can also configure the name of a User Role from your project templates into which the creating/requesting user will be added (Nb. you must configure the module with \"Enable module on all projects by default\").",
+
+	"namespace": "MCRI\\HideCreateEmptyProject",
+
+	"authors": [
+		{
+			"name": "Luke Stevens",
+			"email": "luke.stevens@mcri.edu.au",
+			"institution": "Murdoch Children's Research Institute"
+		}
+	],
+
+	"permissions": [
+        "redcap_every_page_top"
+	],
+
+    "enable-every-page-hooks-on-system-pages": true,
+
+    "links": {
+    },
+        
+    "no-auth-pages": [
+    ],
+
+	"system-settings": [
+		{
+			"key": "project-owner-role-name",
+			"name": "Name of User Role to which creator/requestor will be assigned (if present in template)",
+			"required": false,
+			"type": "text",
+            "default": "Project Owner"
+		}
+	],
+
+	"project-settings": [
+    ]
+}
