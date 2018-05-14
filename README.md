@@ -1,5 +1,5 @@
 ********************************************************************************
-# Hide New Empty Project Option
+# Hide Create Empty Project
 
 Luke Stevens, Murdoch Children's Research Institute https://www.mcri.edu.au
 
@@ -12,14 +12,18 @@ three choices:
 * 2 Upload a REDCap project XML file (CDISC ODM format)?
 * 1 Use a template (choose one below) 
 
-This External Module hides the "Create an empty project (blank slate)", forcing 
-users to use a template (or ODM XML upload).
+This External Module hides the "Create an empty project (blank slate)" option,  
+forcing the user to use a template (or upload an ODM XML).
 
-### Default User Roles
+### Default User Roles in Template Projects
 
 Setting up templates enables REDCap administrators to define suitable default 
 user roles, e.g. for the "Project Owner", "Data Entry", "Investigator", "Data 
-User" etc.
+User" etc. This illustrates the User Roles functionality and encourages users 
+to make use of it rather than managing their project users' permissions 
+individually.
+
+### System-Level Default User Role Name
 
 The module system-level configuration enables the administrator to specify the 
 name of a user role (the default is "Project Owner") to which the user that 
