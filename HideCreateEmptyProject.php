@@ -21,7 +21,7 @@ class HideCreateEmptyProject extends AbstractExternalModule
                                 $(document).ready(function() {
                                     $('input[name="project_template_radio"][value="0"]').closest('div').hide(); 
                                     $('input[name="project_template_radio"]').val([1]); 
-                                    $(window).load(function() {
+                                    $(window).on('load', function() {
                                         $('input[name="project_template_radio"]').change();
                                      });
                                 });

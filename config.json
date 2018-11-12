@@ -14,27 +14,27 @@
 	],
 
 	"permissions": [
-        "redcap_every_page_top"
+            "redcap_every_page_top"
 	],
 
-    "enable-every-page-hooks-on-system-pages": true,
+        "enable-every-page-hooks-on-system-pages": true,
 
-    "links": {
-    },
-        
-    "no-auth-pages": [
-    ],
+        "links": {
+        },
 
-	"system-settings": [
-		{
-			"key": "project-owner-role-name",
-			"name": "Name of User Role to which creator/requestor will be assigned (if present in template)",
-			"required": false,
-			"type": "text",
-            "default": "Project Owner"
-		}
-	],
+        "no-auth-pages": [
+        ],
 
-	"project-settings": [
-    ]
+        "system-settings": [
+                {
+                        "key": "project-owner-role-name",
+                        "name": "Name of User Role to which creator/requestor will be assigned (if present in template)",
+                        "required": false,
+                        "type": "text",
+                        "default": "Project Owner"
+                }
+        ],
+
+        "project-settings": [
+        ]
 }
