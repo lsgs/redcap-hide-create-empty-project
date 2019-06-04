@@ -20,10 +20,11 @@ class HideCreateEmptyProject extends AbstractExternalModule
                             <script type='text/javascript'>
                                 $(document).ready(function() {
                                     $('input[name="project_template_radio"][value="0"]').closest('div').hide(); 
-                                    $('input[name="project_template_radio"]').val([1]); 
-                                    $(window).on('load', function() {
-                                        $('input[name="project_template_radio"]').change();
-                                     });
+//                                    $(window).on('load', function() {
+                                        setTimeout(function() {
+                                            $('input[name="project_template_radio"]').val([1]).change().click();
+                                        }, 1000);
+//                                     });
                                 });
                             </script>
                             <?php
