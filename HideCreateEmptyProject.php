@@ -13,18 +13,17 @@ use REDCap;
 class HideCreateEmptyProject extends AbstractExternalModule
 {
         public function redcap_every_page_top($project_id) {
-                if (PAGE === 'redcap/index.php' || PAGE === 'index.php?action=create') { 
+                if (PAGE === 'index.php' || PAGE === 'redcap/index.php' || PAGE === 'index.php?action=create') { 
                         // For "Create new Project" hide "Empty Project" option and default to template
                         if (isset($_GET['action']) && $_GET['action']==='create') {
                             ?>
                             <script type='text/javascript'>
                                 $(document).ready(function() {
                                     $('input[name="project_template_radio"][value="0"]').closest('div').hide(); 
-//                                    $(window).on('load', function() {
-                                        setTimeout(function() {
-                                            $('input[name="project_template_radio"]').val([1]).change().click();
-                                        }, 1000);
-//                                     });
+                                    $('input[name="project_template_radio"]').val([1]); 
+                                    setTimeout(function() {
+                                        $('input[name="project_template_radio"]').change();
+                                    }, 500);
                                 });
                             </script>
                             <?php
