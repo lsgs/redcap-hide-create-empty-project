@@ -32,13 +32,13 @@ class HideCreateEmptyProject extends AbstractExternalModule
             $defaultRole = $this->getSystemSetting('project-owner-role-name');
             if ($defaultRole!=='') {
                 $defaultRoleId = 0;
-                $r1 = $this->query("select role_id from redcap_user_roles where project_id=? and role_name=? limit 1", [ PROJECT_ID, $defaultRole ]);
+                $r1 = $this->query("select role_id from redcap_user_roles where project_id=? and role_name=? limit 1", [ $project_id, $defaultRole ]);
                 if ($r1->num_rows > 0) {
                     while($row = $r1->fetch_assoc()){
                         $defaultRoleId = $row['role_id'];
                     }
                 }
-                $r2 = $this->query("select if(role_id is null, 0, 1) as in_role from redcap_user_rights where project_id=? ", [ PROJECT_ID ]);
+                $r2 = $this->query("select if(role_id is null, 0, 1) as in_role from redcap_user_rights where project_id=? ", [ $project_id ]);
                 $nInRole = 0;
                 $nUsers = $r2->num_rows;
                 while($row = $r2->fetch_assoc()){
