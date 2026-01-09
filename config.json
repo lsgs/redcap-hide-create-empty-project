@@ -1,11 +1,8 @@
 {
     "name": "Hide Create Empty Project",
-    "description": "Hides the \"Empty project\" option when creating/requesting a new project so users must use a template (or ODM XML upload). You can also configure the name of a User Role from your project templates into which the creating/requesting user will be added (Nb. you must configure the module with \"Enable module on all projects by default\").",
+    "description": "Hides the \"Empty project (blank slate)\" option when creating/requesting a new project so users must select a template for their new project (or create from an ODM XML file).<br>If user role names are configured at the system level then the user who creates/requests the project will be added to the first matching role in the project.<span class=\"config-instruction\"><br>Configure this module with \"Enable module on all projects by default\".</span>",
     "namespace": "MCRI\\HideCreateEmptyProject",
-    "framework-version": 8,
-    "compatibility": {
-        "redcap-version-min": "11.1.1"
-    },
+    "framework-version": 16,
     "authors": [
         {
             "name": "Luke Stevens",
@@ -13,15 +10,35 @@
             "institution": "Murdoch Children's Research Institute"
         }
     ],
-    "permissions": [ "redcap_every_page_top" ],
     "enable-every-page-hooks-on-system-pages": true,
     "system-settings": [
         {
+            "key": "module-settings",
+            "name": "<div class=\"blue font-weight-bold\" style=\"width: 720px;\">Module Options</div>",
+            "type": "descriptive"
+        },
+        {
+            "key": "enable-on-all",
+            "name": "<div class=\"red text-center\" style=\"width: 720px;\">Click the <strong>\"Enable module on all projects by default\"</strong> option above <i class=\"fa-solid fa-hand-point-up\"></i></div>",
+            "type": "descriptive",
+            "hidden": true
+        },
+        {
+            "key": "hide-custom-rights",
+            "name": "Hide \"Add with custom rights\" Option on User Rights pages",
+            "type": "checkbox"
+        },
+        {
+            "key": "project-owner-role-name-label",
+            "name": "Specify names of User Roles to which creator/requestor of a new project will be automatically assigned if present in template. List in priority sequence - preferred first.",
+            "type": "descriptive"
+        },
+        {
             "key": "project-owner-role-name",
-            "name": "Name of User Role to which creator/requestor of a new project will be assigned (if present in template)",
+            "name": "User Role name <span class=\"text-muted\">e.g. \"Project Owner\"</span>",
             "required": false,
             "type": "text",
-            "default": "Project Owner"
+            "repeatable": true
         }
     ],
     "project-settings": [ ]
