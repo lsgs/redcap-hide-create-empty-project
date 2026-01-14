@@ -66,6 +66,7 @@ class HideCreateEmptyProject extends AbstractExternalModule
 
         $defaultRoles = $this->getSystemSetting('project-owner-role-name');
         if (empty($defaultRoles)) return;
+        if (!is_array($defaultRoles)) $defaultRoles = array($defaultRoles);
         $defaultRoles = array_values(array_filter($defaultRoles, function($roleName) {
             return !is_null($roleName) && !empty(trim($roleName)); 
         }));
