@@ -29,6 +29,8 @@ class HideCreateEmptyProject extends AbstractExternalModule
             // Dev projects force single user into owner role (if template has one) - works more flexibly than query string "new" with new project requests
             global $Proj;
             if ($Proj->project['status'] > 0) return;
+            if (PAGE === "surveys/index.php") return;
+            if (starts_with(PAGE, "DataEntry")) return;
             $this->userRoleAssignment($project_id);
         
             if (PAGE==='manager/project.php') {
@@ -63,6 +65,7 @@ class HideCreateEmptyProject extends AbstractExternalModule
         if ($nUsers>1 || $nInRole>0) return;
 
         $defaultRoles = $this->getSystemSetting('project-owner-role-name');
+        if (empty($defaultRoles)) return;
         $defaultRoles = array_values(array_filter($defaultRoles, function($roleName) {
             return !is_null($roleName) && !empty(trim($roleName)); 
         }));
