@@ -138,7 +138,7 @@ class HideCreateEmptyProject extends AbstractExternalModule
         <?php
     }
 
-    public function redcap_every_page_before_render($project_id) {
+    public function redcap_every_page_before_render($project_id=null) {
         if (defined('PAGE') 
             && PAGE==='UserRights/index.php' 
             && !empty($project_id)
