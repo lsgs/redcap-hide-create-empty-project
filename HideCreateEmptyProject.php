@@ -130,10 +130,17 @@ class HideCreateEmptyProject extends AbstractExternalModule
 
     public function redcap_user_rights($project_id) {
         if (!$this->getSystemSetting('hide-custom-rights')) return;
+        if (version_compare(REDCAP_VERSION, '16.0.0')>=0) {
+            $customRightsDivIndex = 2;
+            $orMessageDivIndex = 3;
+        } else {
+            $customRightsDivIndex = 3;
+            $orMessageDivIndex = 4;
+        }
         ?>
         <style type="text/css">
-            #addUsersRolesDiv > div:nth-child(3) { display: none; }
-            #addUsersRolesDiv > div:nth-child(4) { display: none; }
+            #addUsersRolesDiv > div:nth-child(<?= $customRightsDivIndex ?>) { display: none; }
+            #addUsersRolesDiv > div:nth-child(<?= $orMessageDivIndex ?>) { display: none; }
         </style>
         <?php
     }
