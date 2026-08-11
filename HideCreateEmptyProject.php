@@ -130,7 +130,8 @@ class HideCreateEmptyProject extends AbstractExternalModule
 
     public function redcap_user_rights($project_id) {
         if (!$this->getSystemSetting('hide-custom-rights')) return;
-        if (version_compare(REDCAP_VERSION, '16.0.0')>=0) {
+        if (version_compare(REDCAP_VERSION, '16.0.0')>=0 &&
+            version_compare(REDCAP_VERSION, '17.1.4')< 0) {
             $customRightsDivIndex = 2;
             $orMessageDivIndex = 3;
         } else {
